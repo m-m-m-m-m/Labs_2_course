@@ -8,10 +8,6 @@
 #include <stdio.h>
 using namespace std;
 
-/* fprintf example */
-#include <stdio.h>
-
-
 int main ()
 {
 FILE * file;
@@ -19,13 +15,10 @@ int i;
 char letter, a=0;
 
 int* histogram = new int[256];
-
 for (int i=0;i<256;i++)	histogram[i] = 0;
 
 file = fopen("1.txt", "rb");
-
 for(i=0; fscanf(file, "%c", &letter) != EOF; i++) histogram[letter]++;
-
 fclose(file);
 
 for (i=0; i<256; i++)
