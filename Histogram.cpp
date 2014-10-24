@@ -12,7 +12,7 @@ using namespace std;
 #include <stdio.h>
 
 
-int histogram ()
+int main ()
 {
 FILE * file;
 int i;
