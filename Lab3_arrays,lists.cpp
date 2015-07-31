@@ -1,5 +1,6 @@
 #include <iostream>
-#include <algorithm>
+#include <vector>
+//#include <algorithm>
 
 using namespace std;
 
@@ -268,8 +269,10 @@ void checkText(DoublyLinkedList * list)
 	} while (!checkLetters || !checkEmpty || !checkPoint);
 }
 
-//Надрукувати всі слова, у яких непарна кількість літер. Перед друком видалити першу та останню літеру кожного слова. 
-void processList1(DoublyLinkedList * list) // alternative name: toProcessList(DoublyLinkedList * list){};
+//Надрукувати всі слова, у яких непарна кількість літер. Перед друком видалити 
+//першу та останню літеру кожного слова. 
+void processList1(DoublyLinkedList * list) 
+// alternative name: toProcessList(DoublyLinkedList * list){};
 {
 	int letterCounter = 0;
 	link * temp = list->getHead(), *firstLetter, *lastLetter;
@@ -606,17 +609,34 @@ void processList4(DoublyLinkedList * list)
 		list->deleteLink(temp->previous);
 }
 
+void returnSymbolsToCin(DoublyLinkedList * list)
+{
+    link * temp =  list->getTail();
+    while (temp != NULL)
+    {
+        cin.putback(temp->key);
+        temp = temp->previous;
+    }
+}
+    
+//Надрукувати всі слова, у яких непарна кількість літер. Перед друком видалити першу та останню літеру кожного слова.
+void processArray1(vector<char> &text)
+{
+    
+}
+
 int main(){
 	DoublyLinkedList * list = new DoublyLinkedList();
-
+        vector<char> text;
 	cout << "Enter text which has only small letters which separated not less than one space; text must be finished by point:" << endl;
-
+        
 	enterText(list);
 	checkText(list);
+        returnSymbolsToCin(list);
 	processList4(list);
-
 	list->showList();
-
+        processArray1(text);
+        
 	cin.get();
 
 	return 0;
