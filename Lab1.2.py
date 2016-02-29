@@ -59,7 +59,7 @@ def read_information(filepath):
     return pd.read_csv(filepath,index_col=False, header=1)
 
 def change_indices():
-    for filename in sorted(glob('VHI/vhi_id_\d{2}')):
+    for filename in sorted(glob('VHI/vhi_id_[0-9]*')):
         #print filename
         newfilename = filename[:11] + indices[filename[11:13]] + filename[13:]
         #print new_filename
