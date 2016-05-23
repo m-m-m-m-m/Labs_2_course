@@ -69,7 +69,6 @@ def VHI_extreme(index, percent):
     regex = 'VHI/vhi_id_%s*' % indices[index]
     df = read_information(glob(regex)[0])
     df = df.loc[df['%Area_VHI_LESS_15'] > percent]['year']
-    #print df
     df = set(df)
     years = list(df)[1:]
     print 'Роки з екстримальними посухами, які торкнулися більше %s відсотків площі (%s область):' % (str(percent), indices[index])
@@ -88,11 +87,8 @@ def VHI_extreme(index, percent):
         print '%s. %s' % (str(index+1), str(year))'''
 
 
-#download_files()
-#path = raw_input("Enter filepath:")
+download_files()
 path = sorted(glob('VHI/vhi_id_[0-9]*'))
-#information = read_information(path[0])
-#print information
 change_indices()
 VHI_min_max(1, 2000)
 VHI_extreme(1, 10)
